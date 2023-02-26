@@ -47,5 +47,5 @@ buck-out/
 *.keystore
 
 # React Native ts
-dist/
+#dist/
       
