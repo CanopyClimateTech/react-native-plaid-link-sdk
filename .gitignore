@@ -1,16 +1,6 @@
-
 # OSX
 #
 .DS_Store
-
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
-
-# This points at internal endpoints which shouldn't be exposed to the public repo.
-package-lock.json
 
 # Xcode
 #
@@ -30,8 +20,6 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
-      
 
 # Android/IntelliJ
 #
@@ -41,11 +29,31 @@ build/
 local.properties
 *.iml
 
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
 # BUCK
 buck-out/
 \.buckd/
 *.keystore
+!debug.keystore
 
-# React Native ts
-#dist/
-      
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/

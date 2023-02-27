@@ -1,66 +1,38 @@
 {
-  "name": "react-native-plaid-link-sdk",
-  "version": "9.0.2",
-  "description": "React Native Plaid Link SDK",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*",
-    "android/**/*",
-    "ios/**/*",
-    "react-native-plaid-link-sdk.podspec"
-  ],
+  "name": "plaidRNDemo",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "lint": "eslint \"./**/*.{js,jsx}\" --fix",
-    "prettier": "prettier \"./**/*.{js,jsx}\" --write",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preversion": "sed -i\"\" -e s\"#^.*\\(; // SDK_VERSION\\)#return @\\\"$npm_package_version\\\"\\1#\" ios/RNLinksdk.m",
-    "version": "git add -A",
-    "postversion": "git push && git push --tags && rm -rf dist/temp",
-    "compile-typescript": "tsc",
-    "check-version": "node check_version_hook.js",
-    "prepublishOnly": "tsc"
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "recompile-local": "cd ..; tsc; cd example",
+    "sync-local-pkg": "npm run recompile-local; rsync -ar --progress ../../react-native-plaid-link-sdk node_modules --exclude 'node_modules' --exclude 'example'"
   },
-  "keywords": [
-    "react-native",
-    "Plaid"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run check-version"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ]
-  },
-  "author": "Plaid",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "*",
-    "react-native": ">=0.61"
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.66.4",
+    "react-native-plaid-link-sdk": "^7.4.0",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-safe-area-context": "^3.1.8",
+    "react-native-screens": "^2.11.0",
+    "@react-navigation/native": "^5.7.5",
+    "@react-navigation/stack": "^5.9.2",
+    "@react-native-community/clipboard": "1.3.0"
   },
   "devDependencies": {
-    "@react-native-community/eslint-plugin": "^1.1.0",
-    "@types/jest": "^26.0.14",
-    "@types/react": "^16.14.20",
-    "@types/react-native": "^0.63.25",
-    "@types/react-test-renderer": "^16.9.3",
-    "@typescript-eslint/eslint-plugin": "^4.6.1",
-    "@typescript-eslint/parser": "^4.6.1",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^7.12.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.16.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2",
-    "react": "~16.13.1",
-    "react-native": "^0.63.3",
-    "typescript": "^4.5.5",
-    "xyz": "0.5.x"
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "7.14.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
